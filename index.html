@@ -23,6 +23,15 @@
             display: flex; /* Added to enable flexbox layout */
             justify-content: center; /* Center align content horizontally */
             align-items: center; /* Center align content vertically */
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Move down by 20px */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Add fading and sliding animation */
+            will-change: opacity, transform; /* Improve animation performance */
+        }
+
+        .container.show {
+            opacity: 1; /* Show the container when visible */
+            transform: translateY(0); /* Reset position */
         }
 
         .container .text {
@@ -102,6 +111,22 @@
             bottom: 0;
             width: 100%;
         }
+
+        /* Add parallax effect to the background image */
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/beach.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.3;
+            transform: translateZ(0);
+        }
     </style>
 </head>
 <body>
@@ -129,5 +154,18 @@
     <div class="footer">
         &copy; 2023 Oliver Wang. All rights reserved.
     </div>
+
+    <script>
+        // Add class to show container when scrolled into view
+        window.addEventListener('scroll', function() {
+            var container = document.querySelector('.container');
+            var containerPosition = container.getBoundingClientRect().top;
+            var screenPosition = window.innerHeight / 1.2; // Adjust scrolling position
+
+            if (containerPosition < screenPosition) {
+                container.classList.add('show');
+            }
+        });
+    </script>
 </body>
 </html>
