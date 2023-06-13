@@ -5,7 +5,7 @@
     <title>Oliver Wang - Personal Website</title>
     <style>
         body {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/beach.jpg');
+            background-image: url('images/beach.jpg');
             background-size: cover;
             background-position: center;
             font-family: 'Helvetica', Arial, sans-serif;
@@ -15,41 +15,71 @@
 
         .container {
             max-width: 800px;
-            margin: 60px auto; /* Adjust margin to accommodate the taskbar */
+            margin: 100px auto; /* Adjust margin to accommodate the taskbar */
             padding: 40px;
-            background-color: rgba(0, 0, 0, 0.6); /* Darker background */
+            background-color: rgba(0, 0, 0, 0.6);
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Adjusted box shadow */
-            display: flex; /* Added to enable flexbox layout */
-            justify-content: center; /* Center align content horizontally */
-            align-items: center; /* Center align content vertically */
-            opacity: 0; /* Initially hidden */
-            transform: translateY(20px); /* Move down by 20px */
-            transition: opacity 0.5s ease, transform 0.5s ease; /* Add fading and sliding animation */
-            will-change: opacity, transform; /* Improve animation performance */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
-        .container.show {
-            opacity: 1; /* Show the container when visible */
-            transform: translateY(0); /* Reset position */
+        .container:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            z-index: -1;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(20px);
         }
 
         .container .text {
-            flex: 1; /* Take up remaining space */
-            text-align: left; /* Align text to the left */
+            animation: slide-in 1s ease-in-out; /* Add slide-in animation */
+        }
+
+        .container .image {
+            animation: fade-in 1s ease-in-out; /* Add fade-in animation */
+        }
+
+        /* Slide-in Animation */
+        @keyframes slide-in {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Fade-in Animation */
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
 
         .container .text h1 {
             font-size: 36px;
-            color: #fff; /* White title text */
-            font-family: 'Ubuntu', sans-serif; /* Use Ubuntu font */
+            color: #fff;
+            font-family: 'Ubuntu', sans-serif;
             margin-bottom: 20px;
-            text-transform: uppercase; /* Uppercase title text */
+            text-transform: uppercase;
         }
 
         .container .text p {
             font-size: 18px;
-            color: #ddd; /* Lighter text color */
+            color: #fff;
             line-height: 1.5;
             margin-bottom: 20px;
         }
@@ -59,16 +89,16 @@
         }
 
         .container .image {
-            flex: 0 0 300px; /* Fixed width for the image */
-            margin-left: 40px; /* Adjust spacing between text and image */
-            overflow: hidden; /* Hide image overflow */
+            flex: 0 0 300px;
+            margin-left: 40px;
+            overflow: hidden;
             border-radius: 5px;
         }
 
         .container .image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Maintain image aspect ratio and cover container */
+            object-fit: cover;
         }
 
         .taskbar {
@@ -81,7 +111,7 @@
             text-align: center;
             color: #fff;
             font-size: 14px;
-            z-index: 1; /* Ensure the taskbar appears above other elements */
+            z-index: 1;
         }
 
         .taskbar ul {
@@ -107,25 +137,9 @@
             text-align: center;
             color: #fff;
             font-size: 14px;
-            position: absolute;
+            position: fixed;
             bottom: 0;
             width: 100%;
-        }
-
-        /* Add parallax effect to the background image */
-        body:before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/beach.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0.3;
-            transform: translateZ(0);
         }
     </style>
 </head>
@@ -155,17 +169,5 @@
         &copy; 2023 Oliver Wang. All rights reserved.
     </div>
 
-    <script>
-        // Add class to show container when scrolled into view
-        window.addEventListener('scroll', function() {
-            var container = document.querySelector('.container');
-            var containerPosition = container.getBoundingClientRect().top;
-            var screenPosition = window.innerHeight / 1.2; // Adjust scrolling position
-
-            if (containerPosition < screenPosition) {
-                container.classList.add('show');
-            }
-        });
-    </script>
 </body>
 </html>
