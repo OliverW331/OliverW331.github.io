@@ -5,11 +5,10 @@
     <title>Oliver Wang - Personal Website</title>
     <style>
         body {
-            background-image: url('images/beach.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/beach.jpg');
             background-size: cover;
-            background-position: 0 0;
-            /* background-repeat: no-repeat; */
-            font-family: Arial, sans-serif;
+            background-position: center;
+            font-family: 'Helvetica', Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -17,10 +16,50 @@
         .container {
             max-width: 800px;
             margin: 60px auto; /* Adjust margin to accommodate the taskbar */
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7); /* Increased transparency */
+            padding: 40px;
+            background-color: rgba(0, 0, 0, 0.6); /* Darker background */
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Adjusted box shadow */
+            display: flex; /* Added to enable flexbox layout */
+            justify-content: center; /* Center align content horizontally */
+            align-items: center; /* Center align content vertically */
+        }
+
+        .container .text {
+            flex: 1; /* Take up remaining space */
+            text-align: left; /* Align text to the left */
+        }
+
+        .container .text h1 {
+            font-size: 36px;
+            color: #fff; /* White title text */
+            font-family: 'Ubuntu', sans-serif; /* Use Ubuntu font */
+            margin-bottom: 20px;
+            text-transform: uppercase; /* Uppercase title text */
+        }
+
+        .container .text p {
+            font-size: 18px;
+            color: #ddd; /* Lighter text color */
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .container .text strong {
+            font-weight: bold;
+        }
+
+        .container .image {
+            flex: 0 0 300px; /* Fixed width for the image */
+            margin-left: 40px; /* Adjust spacing between text and image */
+            overflow: hidden; /* Hide image overflow */
+            border-radius: 5px;
+        }
+
+        .container .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Maintain image aspect ratio and cover container */
         }
 
         .taskbar {
@@ -33,6 +72,7 @@
             text-align: center;
             color: #fff;
             font-size: 14px;
+            z-index: 1; /* Ensure the taskbar appears above other elements */
         }
 
         .taskbar ul {
@@ -50,19 +90,6 @@
             color: #fff;
             text-decoration: none;
             padding: 5px;
-        }
-
-        h1 {
-            color: #333;
-            font-size: 32px;
-            text-align: center;
-        }
-
-        p {
-            color: #666;
-            font-size: 18px;
-            line-height: 1.5;
-            margin-bottom: 20px;
         }
 
         .footer {
@@ -88,10 +115,15 @@
     </div>
 
     <div class="container">
-        <h1>Oliver Wang</h1>
-        <p>Welcome to my personal website!</p>
-        <p>I am passionate about <strong>the environment</strong> and <strong>computational modeling</strong>.</p>
-        <p>Feel free to explore my projects and learn more about me.</p>
+        <div class="text">
+            <h1>Hi, I'm Oliver Wang</h1>
+            <p>I am driven by a deep passion for</p>
+            <p><strong>the intrinsic value of nature</strong> &amp; <strong>computational modeling</strong>.</p>
+        </div>
+
+        <div class="image">
+            <img src="images/oliver.jpg" alt="Oliver Wang">
+        </div>
     </div>
 
     <div class="footer">
