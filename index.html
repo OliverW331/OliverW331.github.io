@@ -17,9 +17,9 @@
             max-width: 800px;
             margin: 100px auto; /* Adjust margin to accommodate the taskbar */
             padding: 40px;
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(0, 0, 0, 0); /* Set background color to transparent */
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,7 +35,7 @@
             right: -10px;
             bottom: -10px;
             z-index: -1;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0);
             filter: blur(20px);
         }
 
@@ -74,7 +74,7 @@
             color: #fff;
             font-family: 'Ubuntu', sans-serif;
             margin-bottom: 20px;
-            text-transform: uppercase;
+            /* margin-left: -px; */
         }
 
         .container .text p {
@@ -82,6 +82,7 @@
             color: #fff;
             line-height: 1.5;
             margin-bottom: 20px;
+            /* margin-left: -px; */
         }
 
         .container .text strong {
@@ -106,7 +107,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 1);
             padding: 10px;
             text-align: center;
             color: #fff;
@@ -156,8 +157,7 @@
     <div class="container">
         <div class="text">
             <h1>Hi, I'm Oliver Wang</h1>
-            <p>I am driven by a deep passion for</p>
-            <p><strong>the intrinsic value of nature</strong> &amp; <strong>computational modeling</strong>.</p>
+            <p>I love <strong> nature</strong> &amp; <strong>computational modeling</strong>.</p>
         </div>
 
         <div class="image">
