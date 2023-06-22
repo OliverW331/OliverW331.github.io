@@ -15,9 +15,9 @@
 
         .container {
             max-width: 800px;
-            margin: 100px auto; /* Adjust margin to accommodate the taskbar */
+            margin: 100px auto; /* 调整边距以适应任务栏 */
             padding: 40px;
-            background-color: rgba(0, 0, 0, 0.3); /* Set background color to transparent */
+            background-color: rgba(0, 0, 0, 0.3); /* 设置背景颜色为透明 */
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0);
             display: flex;
@@ -40,11 +40,11 @@
         }
 
         .container .text {
-            animation: slide-in 1s ease-in-out; /* Add slide-in animation */
+            animation: slide-in 1s ease-in-out; /* 添加滑入动画 */
         }
 
         .container .image {
-            animation: fade-in 1s ease-in-out; /* Add fade-in animation */
+            animation: fade-in 1s ease-in-out; /* 添加淡入动画 */
         }
 
         /* Slide-in Animation */
@@ -72,9 +72,9 @@
         .container .text h1 {
             font-size: 36px;
             color: #fff;
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Helvetica', Arial, sans-serif; /* 使用默认字体 */
             margin-bottom: 20px;
-            /* margin-left: -px; */
+            margin-left: -10px; /* 微调标题的位置 */
         }
 
         .container .text p {
@@ -82,7 +82,7 @@
             color: #fff;
             line-height: 1.5;
             margin-bottom: 20px;
-            /* margin-left: -px; */
+            margin-left: -10px; /* 微调段落的位置 */
         }
 
         .container .text strong {
@@ -107,7 +107,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 1);
+            background-color: rgba(0, 0, 0, 0.6); /* 降低透明度 */
             padding: 10px;
             text-align: center;
             color: #fff;
@@ -143,12 +143,20 @@
             width: 100%;
         }
     </style>
+    <script>
+        function showAboutContent() {
+            window.open("about.html"); /* 在新窗口中打开关于页面 */
+        }
+        function showHomeContent() {
+            window.open("index.html"); /* 在新窗口中打开主页 */
+        }
+    </script>
 </head>
 <body>
     <div class="taskbar">
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="javascript:showHomeContent();">Home</a></li>
+            <li><a href="javascript:showAboutContent();">About me</a></li>
             <li><a href="#">Projects</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
@@ -160,6 +168,7 @@
             <p>I love <strong> nature</strong> &amp; <strong>computational modeling</strong>.</p>
         </div>
 
+        
         <div class="image">
             <img src="images/oliver.jpg" alt="Oliver Wang">
         </div>
